@@ -24,6 +24,7 @@ def hashPW(userInput):
         else:
             resultpw += char
         index += 1
+    resultpw = resultpw[:25]
     print(resultpw)
 
 ## Main loop ##
