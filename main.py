@@ -1,4 +1,6 @@
 import hashlib
+import tkinter as tk
+import os
 
 ## Returns true if number is even ##
 def isEven(num):
@@ -27,7 +29,14 @@ def hashPW(userInput):
     resultpw = resultpw[:25]
     print(resultpw)
 
-## Main loop ##
-while True:
-    prompt = input("Enter password: ")
-    hashPW(prompt)
+## GUI with tkinter ##
+window = tk.Tk()
+window.title = "Password-Gen"
+window.geometry("800x400")
+
+promptLabel = tk.Label(window, text="Enter password").place(x = 300, y = 100)
+userinput = tk.Entry(window).place(x = 400, y = 100)
+button = tk.Button(window, text="Generate").place(x = 400, y = 150)
+result = tk.Entry(window).place(x = 350, y = 180)
+
+window.mainloop()
