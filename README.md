@@ -2,7 +2,7 @@
 ![App](https://i.imgur.com/uc2JMUa.png)
 
 ## Summary
-password-gen works by using the sha-265 hashing algorithm to generate an irreverable unique string, and is then appended with symbols and uppercase characters so that the same password is generated everytime.
+password-gen works by using the sha-256 hashing algorithm to generate an irreverable unique string, and is then appended with symbols and uppercase characters so that the same password is generated everytime.
 
 This is intended for creating complex passwords that you do not have to remember, and only remembering the simple password used to generate it.
 
