@@ -28,13 +28,19 @@ def hashPW():
         index += 1
     resultpw = resultpw[:25]
     result.set(resultpw)
-    print("Password generated")
+    updateNotif("Password generated")
 
+## Copy to clipboard ##
 def copyClipboard():
     window.clipboard_clear()
     window.clipboard_append(result.get())
     window.update()
-    print("Password copied")
+    updateNotif("Copied to clipboard")
+
+## Update notification ##
+def updateNotif(note):
+    print(note)
+    notification.set(note)
 
 ## GUI with tkinter ##
 window = tk.Tk()
@@ -45,6 +51,8 @@ window.configure()
 # Input/Output Variables #
 result = tk.StringVar()
 password = tk.StringVar()
+notification = tk.StringVar()
+
 # Widgets ##
 promptLabel = tk.Label(window, text="Enter Password:").place(x = 50, y = 40)
 userInput = tk.Entry(window, textvariable=password, width=30).place(x = 50, y = 70)
@@ -52,6 +60,7 @@ inputBtn = tk.Button(window, text="Generate", command=hashPW).place(x = 50, y = 
 resultLabel = tk.Label(window, text="Hashed Password:").place(x = 50, y = 140)
 entryResult = tk.Entry(window, textvariable=result, width=30).place(x = 50, y = 170)
 copyBtn = tk.Button(window, text="Copy", command=copyClipboard).place(x = 50, y = 200)
+notifLabel = tk.Label(window, textvariable=notification, fg="red").place(x = 10, y = 250)
 
 ## Main loop ##
 window.mainloop()
