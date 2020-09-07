@@ -1,6 +1,5 @@
 import hashlib
 import tkinter as tk
-import os
 
 ## Returns true if number is even ##
 def isEven(num):
@@ -9,9 +8,10 @@ def isEven(num):
     else:
         return False
 
-## Hash input and splice in consistent modifications ##
-def hashPW(userInput):
-    hashedpw = hashlib.sha256(userInput.encode()).hexdigest()
+## Hash input and splice in modifications ##
+def hashPW():
+    inputPW = password.get()
+    hashedpw = hashlib.sha256(inputPW.encode()).hexdigest()
     resultpw = ""
     index = 0
     for char in hashedpw:
@@ -27,16 +27,21 @@ def hashPW(userInput):
             resultpw += char
         index += 1
     resultpw = resultpw[:25]
-    print(resultpw)
+    result.set(resultpw)
 
 ## GUI with tkinter ##
 window = tk.Tk()
-window.title = "Password-Gen"
+window.title("Password-Gen")
 window.geometry("800x400")
 
-promptLabel = tk.Label(window, text="Enter password").place(x = 300, y = 100)
-userinput = tk.Entry(window).place(x = 400, y = 100)
-button = tk.Button(window, text="Generate").place(x = 400, y = 150)
-result = tk.Entry(window).place(x = 350, y = 180)
+# Input/Output Variables #
+result = tk.StringVar()
+password = tk.StringVar()
+# Widgets ##
+promptLabel = tk.Label(window, text="Enter password").place(x = 50, y = 40)
+userInput = tk.Entry(window, textvariable=password, width=30).place(x = 50, y = 70)
+button = tk.Button(window, text="Generate", command=hashPW).place(x = 50, y = 100)
+entryResult = tk.Entry(window, textvariable=result, width=30).place(x = 50, y = 130)
 
+## Main loop ##
 window.mainloop()
