@@ -28,20 +28,30 @@ def hashPW():
         index += 1
     resultpw = resultpw[:25]
     result.set(resultpw)
+    print("Password generated")
+
+def copyClipboard():
+    window.clipboard_clear()
+    window.clipboard_append(result.get())
+    window.update()
+    print("Password copied")
 
 ## GUI with tkinter ##
 window = tk.Tk()
 window.title("Password-Gen")
-window.geometry("800x400")
+window.geometry("300x280")
+window.configure()
 
 # Input/Output Variables #
 result = tk.StringVar()
 password = tk.StringVar()
 # Widgets ##
-promptLabel = tk.Label(window, text="Enter password").place(x = 50, y = 40)
+promptLabel = tk.Label(window, text="Enter Password:").place(x = 50, y = 40)
 userInput = tk.Entry(window, textvariable=password, width=30).place(x = 50, y = 70)
-button = tk.Button(window, text="Generate", command=hashPW).place(x = 50, y = 100)
-entryResult = tk.Entry(window, textvariable=result, width=30).place(x = 50, y = 130)
+inputBtn = tk.Button(window, text="Generate", command=hashPW).place(x = 50, y = 100)
+resultLabel = tk.Label(window, text="Hashed Password:").place(x = 50, y = 140)
+entryResult = tk.Entry(window, textvariable=result, width=30).place(x = 50, y = 170)
+copyBtn = tk.Button(window, text="Copy", command=copyClipboard).place(x = 50, y = 200)
 
 ## Main loop ##
 window.mainloop()
