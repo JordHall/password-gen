@@ -17,7 +17,6 @@ Go to the install directory containing main.py
 Run main.py with the `python main.py` command
 
 ## Use
-Simply enter a password and click Generate
 
 A default salt is used, and if you want the same input password to produce different output passwords, just select different options on the dropdown menu
 
