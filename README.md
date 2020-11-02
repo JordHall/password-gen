@@ -8,6 +8,10 @@ This is intended for creating complex passwords that you do not have to remember
 
 ## Install and use
 
+### Requirements
+Python 3.8.5 is needed to run this application.
+[Download at Python.org](https://www.python.org/downloads/release/python-385/)
+
 ### Windows
 Run the main.py file in the install directory via windows explorer
 
